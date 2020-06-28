@@ -1,0 +1,17 @@
+const express = require('express');
+
+const userRoutes = require('./routes/users');
+const chatRoutes = require('./routes/chat');
+
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('<h3>Some API stuff</h3>');
+});
+app.use(express.json());
+app.use('/user', userRoutes);
+app.use('/chat', chatRoutes);
+
+app.listen(process.env.PORT || 3200, () => {
+    console.log('Connected on port 3200');
+})
