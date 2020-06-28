@@ -7,11 +7,6 @@ const { successResponse, errorResponse } = require('../responses');
 
 let router = express.Router();
 
-mongoose.connect(`mongodb+srv://${config.mongoUsername}:${config.mongoPass}@${config.mongoURL}/${config.mongoUserChatDB}`, {useUnifiedTopology: true, useNewUrlParser: true});
-mongoose.connection.once("open", () => {
-    console.log(`mongodb://${config.mongoURL}/${config.mongoUserChatDB} connection established successfully`);
-});
-
 const chats = mongoose.model('chatHistory', mongodb.Chat);
 
 router
