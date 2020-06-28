@@ -58,7 +58,9 @@ router
                 chatHistory: req.body.history,
                 chatStatus: req.body.status
             }
-            const updateResponse =  await chats.findOneAndUpdate({accountId: req.query.accountId, date?: req.query.date}, updates, {new: true});
+            let query = {accountId: req.query.accountId};
+            req.query.date ? query.date = req.query.date : null;
+            const updateResponse =  await chats.findOneAndUpdate(query, updates, {new: true});
             res.send(successResponse(updateResponse));
         } catch(error) {
             res.send(errorResponse(error));
