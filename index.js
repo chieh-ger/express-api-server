@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('<h3>Some API stuff</h3>');
+    res.send('<h3>DB API</h3>');
 });
 app.use(express.json());
 app.use('/user', userRoutes);
