@@ -4,7 +4,7 @@ const userRoutes = require('./routes/users');
 const chatRoutes = require('./routes/chat');
 
 const app = express();
-app.use(cors);
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('<h3>Some API stuff</h3>');
