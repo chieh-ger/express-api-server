@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 const userRoutes = require('./routes/users');
 const chatRoutes = require('./routes/chat');
 
@@ -15,3 +15,5 @@ app.use('/chat', chatRoutes);
 app.listen(process.env.PORT || 3200, () => {
     console.log('Connected on port 3200');
 })
+
+app.use(cors);
